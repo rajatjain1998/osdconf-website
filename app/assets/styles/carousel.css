@@ -1,0 +1,135 @@
+.carousel ::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
+.carousel ::-webkit-scrollbar-button {
+    width: 1px;
+    height: 1px;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.carousel {
+    width: 100%;
+    background-color: #000;
+    position: relative;
+}
+
+.carousel--button {
+    color: wheat;
+    position: absolute;
+    background: rgba(0, 0, 0, .4);
+    border: none;
+    text-decoration: none;
+    font-size: 30px;
+    top: 50%;
+    z-index: 99;
+    cursor: pointer;
+    padding: 7px;
+    transform: translate(0, -50%);
+}
+
+#carousel--button-left {
+    left: 20px
+}
+
+#carousel--button-right {
+    right: 10px;
+}
+
+.row--carousel {
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.row--carousel__inner {
+    -webkit-transition: 450ms -webkit-transform;
+    transition: 450ms -webkit-transform;
+    transition: 450ms transform;
+    transition: 450ms transform, 450ms -webkit-transform;
+    font-size: 0;
+    white-space: nowrap;
+    margin: 70.3125px 0;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.tile--carousel {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    height: 140.625px;
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    -webkit-transition: 450ms all;
+    transition: 450ms all;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+}
+
+.tile--carousel__img {
+    width: 250px;
+    height: 140.625px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.tile--carousel__details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    color: white;
+    font-size: 10px;
+    opacity: 0;
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0)));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    -webkit-transition: 450ms opacity;
+    transition: 450ms opacity;
+}
+
+.tile--carousel__details:after,
+.tile--carousel__details:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: #000;
+}
+
+.tile--carousel:hover .tile--carousel__details {
+    opacity: 1;
+}
+
+.tile--carousel__title {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+}
+
+.row--carousel__inner:hover {
+    -webkit-transform: translate3d(-62.5px, 0, 0);
+    transform: translate3d(-62.5px, 0, 0);
+}
+
+.row--carousel__inner:hover .tile--carousel {
+    opacity: 0.3;
+}
+
+.row--carousel__inner:hover .tile--carousel:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+.tile--carousel:hover ~ .tile--carousel {
+    -webkit-transform: translate3d(125px, 0, 0);
+    transform: translate3d(125px, 0, 0);
+}
